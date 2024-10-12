@@ -28,12 +28,12 @@ camera.lookAt(0, 0, 0);
 const renderer = new THREE.WebGLRenderer({
   antialias: true,
 });
+renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
 // 渲染循环
 function render() {
-  model.rotateY(0.01); //旋转动画
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 }

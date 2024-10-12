@@ -48,7 +48,9 @@ camera.lookAt(0, 0, 0); //相机观察目标指向Three.js坐标系原点
 // 4. 一个物体：体验透视投影相机远小近大的投影规律
 // 5. 视野角度fov越大，观察范围越大
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+  antialias: true,
+});
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 

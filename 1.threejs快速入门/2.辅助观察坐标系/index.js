@@ -33,7 +33,9 @@ camera.position.set(0, 0, 300); // 相机在Three.js三维坐标系中的位置
 camera.lookAt(mesh.position); // 相机观察目标指向mesh
 
 // 创建渲染器
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+  antialias: true,
+});
 renderer.setSize(canvasWidth, canvasHeight); // 设置three.js渲染区域的尺寸(像素px)
 document.body.appendChild(renderer.domElement); // three.js执行渲染命令后会输出一个canvas画布，也就是一个HTML元素，你可以插入到web页面中
 

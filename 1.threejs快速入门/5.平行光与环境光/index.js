@@ -62,7 +62,9 @@ camera.lookAt(0, 0, 0); //相机观察目标指向Three.js坐标系原点
 /**
  * 创建渲染器对象
  */
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+  antialias: true,
+});
 renderer.setSize(width, height); //设置three.js渲染区域的尺寸(像素px)
 renderer.render(scene, camera); //执行渲染操作
 //three.js执行渲染命令会输出一个canvas画布，也就是一个HTML元素，你可以插入到web页面中
