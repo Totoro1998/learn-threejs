@@ -1,11 +1,11 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-import model from "./model.js"; //模型对象
+import { mesh, texture } from "./model.js"; //模型对象
 
 //场景
 const scene = new THREE.Scene();
-scene.add(model); //模型对象添加到场景中
+scene.add(mesh); //模型对象添加到场景中
 
 //辅助观察的坐标系
 const axesHelper = new THREE.AxesHelper(100);
@@ -32,8 +32,10 @@ document.body.appendChild(renderer.domElement);
 
 // 渲染循环
 function render() {
+  texture.offset.x += 0.001; //设置纹理动画
   renderer.render(scene, camera);
 }
+
 const controls = new OrbitControls(camera, renderer.domElement);
 
 // 画布跟随窗口变化

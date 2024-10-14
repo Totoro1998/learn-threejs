@@ -27,13 +27,15 @@ camera.lookAt(0, 0, 0);
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
-renderer.setAnimationLoop(render);
 document.body.appendChild(renderer.domElement);
 
 // 渲染循环
 function render() {
   renderer.render(scene, camera);
+  requestAnimationFrame(render);
 }
+render();
+
 const controls = new OrbitControls(camera, renderer.domElement);
 
 // 画布跟随窗口变化

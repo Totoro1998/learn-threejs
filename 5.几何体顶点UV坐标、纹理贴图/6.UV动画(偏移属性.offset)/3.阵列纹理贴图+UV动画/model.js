@@ -1,0 +1,21 @@
+import * as THREE from "three";
+
+// 一个矩形平面几何体用来表示传送带
+const geometry = new THREE.PlaneGeometry(200, 20);
+//纹理贴图加载器TextureLoader
+const texLoader = new THREE.TextureLoader();
+// .load()方法加载图像，返回一个纹理对象Texture
+const texture = texLoader.load("./纹理3.jpg");
+texture.colorSpace = THREE.SRGBColorSpace; // !注意最新版本，webgl渲染器默认编码方式已经改变，为了避免色差，纹理对象编码方式要修改为THREE.SRGBColorSpace
+const material = new THREE.MeshLambertMaterial({
+  map: texture, //map表示材质的颜色贴图属性
+});
+const mesh = new THREE.Mesh(geometry, material);
+mesh.rotateX(-Math.PI / 2);
+
+// 设置阵列
+texture.wrapS = THREE.RepeatWrapping;
+// uv两个方向纹理重复数量
+texture.repeat.x = 50; //注意选择合适的阵列数量
+
+export { mesh, texture };
