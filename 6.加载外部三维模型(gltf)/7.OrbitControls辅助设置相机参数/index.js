@@ -34,7 +34,6 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
-//解决加载gltf格式模型颜色偏差问题
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 // 设置相机控件轨道控制器OrbitControls
