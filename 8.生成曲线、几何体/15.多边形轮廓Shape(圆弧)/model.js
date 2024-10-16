@@ -5,7 +5,6 @@ const shape = new THREE.Shape();
 shape.lineTo(100, 0); //.currentPoint变为(100,0)
 // 圆弧.arc参数的圆心0,0坐标是相对当前.currentPoint而言，而不是坐标原点
 shape.arc(0, 0, 50, 0, Math.PI / 2); //.currentPoint变为圆弧线结束点坐标
-console.log("currentPoint", shape.currentPoint);
 // 绘制直线，直线起点：圆弧绘制结束的点  直线结束点：(0, 0)
 shape.lineTo(0, 50);
 
