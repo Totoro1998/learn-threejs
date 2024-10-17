@@ -31,8 +31,6 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
-renderer.outputEncoding = THREE.sRGBEncoding;
-
 // 设置相机控件轨道控制器OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
 
