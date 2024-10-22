@@ -28,7 +28,7 @@ const attribue = new THREE.BufferAttribute(vertices, 3); //3个为一组，表�
 geometry.attributes.position = attribue;
 
 // 每个顶点的法线数据和顶点位置数据一一对应
-const normals = new Float32Array([
+const normal = new Float32Array([
   0,
   0,
   1, //顶点1法线( 法向量 )
@@ -49,7 +49,7 @@ const normals = new Float32Array([
   1, //顶点6法线
 ]);
 // 设置几何体的顶点法线属性.attributes.normal
-geometry.attributes.normal = new THREE.BufferAttribute(normals, 3); //3个为一组,表示一个顶点的法线数据
+geometry.attributes.normal = new THREE.BufferAttribute(normal, 3); //3个为一组,表示一个顶点的法线数据
 
 // MeshBasicMaterial不受光照影响
 // 使用受光照影响的材质，Geometry几何体需要定义顶点法线数据

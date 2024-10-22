@@ -35,4 +35,6 @@ const material = new THREE.MeshBasicMaterial({
 // 网格模型本质：一个一个三角形(面)构成
 const mesh = new THREE.Mesh(geometry, material);
 
+console.log(mesh);
+
 export default mesh;

@@ -22,7 +22,7 @@ const attribue = new THREE.BufferAttribute(vertices, 3); //3个为一组，表�
 geometry.attributes.position = attribue;
 
 // 每个顶点的法线数据和顶点位置数据一一对应
-const normals = new Float32Array([
+const normal = new Float32Array([
   0,
   0,
   1, //顶点1法线( 法向量 )
@@ -37,7 +37,7 @@ const normals = new Float32Array([
   1, //顶点4法线
 ]);
 // 设置几何体的顶点法线属性.attributes.normal
-geometry.attributes.normal = new THREE.BufferAttribute(normals, 3); //3个为一组,表示一个顶点的法线数据
+geometry.attributes.normal = new THREE.BufferAttribute(normal, 3); //3个为一组,表示一个顶点的法线数据
 
 // Uint16Array类型数组创建顶点索引数据
 const indexes = new Uint16Array([0, 1, 2, 0, 2, 3]);
