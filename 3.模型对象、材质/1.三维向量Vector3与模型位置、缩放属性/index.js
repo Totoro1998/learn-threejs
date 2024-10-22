@@ -12,10 +12,7 @@ const axesHelper = new THREE.AxesHelper(100);
 scene.add(axesHelper);
 
 //光源设置
-const pointLight = new THREE.PointLight(0xffffff, 1.0);
-pointLight.position.set(400, 200, 300);
-scene.add(pointLight);
-const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+const ambient = new THREE.AmbientLight(0xffffff, 2.0);
 scene.add(ambient);
 
 //渲染器和相机

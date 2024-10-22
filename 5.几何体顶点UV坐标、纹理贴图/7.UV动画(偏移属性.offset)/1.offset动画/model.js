@@ -13,11 +13,6 @@ const mesh = new THREE.Mesh(geometry, material);
 mesh.rotateX(-Math.PI / 2);
 
 // texture.offset.x +=0.5;//纹理U方向偏移
-// 设置.wrapS也就是U方向，纹理映射模式(包裹模式)
+// 设置.wrapS也就是U水平方向，纹理映射模式(包裹模式)
 texture.wrapS = THREE.RepeatWrapping; //对应offste.x偏移
-
-// texture.offset.y +=0.5;//纹理V方向偏移
-// 设置.wrapT也就是V方向，纹理映射模式
-// texture.wrapT = THREE.RepeatWrapping;//对应offste.y偏移
-
 export { mesh, texture };

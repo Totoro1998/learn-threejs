@@ -21,8 +21,8 @@ scene.add(ambient);
 //渲染器和相机
 const width = window.innerWidth;
 const height = window.innerHeight;
-const camera = new THREE.PerspectiveCamera(30, width / height, 1, 3000);
-camera.position.set(292, 223, 185);
+const camera = new THREE.PerspectiveCamera(30, width / height, 1, 8000);
+camera.position.set(0, 2000, 2000);
 camera.lookAt(0, 0, 0);
 
 const renderer = new THREE.WebGLRenderer();

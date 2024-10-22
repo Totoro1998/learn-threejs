@@ -12,7 +12,7 @@ const axesHelper = new THREE.AxesHelper(100);
 scene.add(axesHelper);
 
 //光源设置
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
 directionalLight.position.set(400, 200, 300);
 scene.add(directionalLight);
 const ambient = new THREE.AmbientLight(0xffffff, 0.4);
