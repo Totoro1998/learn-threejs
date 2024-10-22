@@ -22,14 +22,13 @@ textureCube.colorSpace = THREE.SRGBColorSpace; //设置纹理贴图编码方式�
 loader.load("./车pbr.glb", function (gltf) {
   model.add(gltf.scene);
   // 注意如果车外壳或玻璃共享了材质，修改一个其他的也会变化和影响
-
   const mesh1 = gltf.scene.getObjectByName("外壳01");
   mesh1.material.envMap = textureCube; //环境贴图
-  mesh1.material.envMapIntensity = 1.0; ////环境贴图对Mesh表面影响程度
+  mesh1.material.envMapIntensity = 1.0;
 
   const mesh2 = gltf.scene.getObjectByName("玻璃01");
   mesh2.material.envMap = textureCube; //环境贴图
-  mesh2.material.envMapIntensity = 1.0; ////环境贴图对Mesh表面影响程度
+  mesh2.material.envMapIntensity = 1.0;
 
   // 查看threejs解析的PBR材质
   gltf.scene.traverse(function (obj) {
@@ -37,8 +36,8 @@ loader.load("./车pbr.glb", function (gltf) {
       console.log("obj.material", obj.material);
     }
   });
-  console.log("外壳", mesh1.material);
-  console.log("玻璃", mesh2.material);
+  console.log("外壳01", mesh1.material);
+  console.log("玻璃01", mesh2.material);
 
   const obj = {
     color1: mesh1.material.color.getHex(), // 外壳颜色

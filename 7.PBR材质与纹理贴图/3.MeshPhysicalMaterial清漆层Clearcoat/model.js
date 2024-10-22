@@ -7,29 +7,26 @@ import gui from "./gui.js";
 
 // 创建材质子菜单
 const matFolder = gui.addFolder("车外壳材质");
-matFolder.close(); //关闭菜单
+matFolder.close();
 
-const loader = new GLTFLoader(); //创建一个GLTF加载器
-
-const model = new THREE.Group(); //声明一个组对象，用来添加加载成功的三维场景
-// 加载环境贴图
+const loader = new GLTFLoader();
+const model = new THREE.Group();
 const textureCube = new THREE.CubeTextureLoader()
   .setPath("../环境贴图/环境贴图1/")
   .load(["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"]);
-textureCube.colorSpace = THREE.SRGBColorSpace; //设置纹理贴图编码方式和WebGL渲染器一致
+textureCube.colorSpace = THREE.SRGBColorSpace;
 loader.load("../轿车.glb", function (gltf) {
   model.add(gltf.scene);
   // 车外壳包含多个Mesh，获取其中一个
   const mesh = gltf.scene.getObjectByName("外壳01");
   mesh.material = new THREE.MeshPhysicalMaterial({
-    color: mesh.material.color, //默认颜色
-    // color: 0x222222,//换一种颜色
-    metalness: 0.9, //车外壳金属度
-    roughness: 0.5, //车外壳粗糙度
-    clearcoat: 1, //清漆层
-    clearcoatRoughness: 0.01, //清漆层粗糙度
-    envMap: textureCube, //环境贴图
-    envMapIntensity: 2.5, //环境贴图对Mesh表面影响程度
+    color: mesh.material.color,
+    metalness: 1.0,
+    roughness: 0.5,
+    envMap: textureCube,
+    envMapIntensity: 2.5,
+    clearcoat: 1, // 清漆层
+    clearcoatRoughness: 0.01, // 清漆层粗糙度
   });
 
   const obj = {

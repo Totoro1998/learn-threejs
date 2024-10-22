@@ -21,12 +21,15 @@ loader.load("../轿车.glb", function (gltf) {
   model.add(gltf.scene);
   const mesh = gltf.scene.getObjectByName("玻璃01");
   mesh.material = new THREE.MeshPhysicalMaterial({
-    metalness: 0.0, //玻璃非金属
-    roughness: 0.0, //玻璃表面光滑
-    envMap: textureCube, //环境贴图
-    envMapIntensity: 1.0, //环境贴图对Mesh表面影响程度
+    metalness: 0.0,
+    roughness: 0.0,
+    envMap: textureCube,
+    envMapIntensity: 1.0,
+    // transparent: true,
+    // opacity: 0.1, // 使用环境贴图时，opacity属性不能很好的反射环境贴图。
+
     transmission: 1.0, //玻璃材质透光率，transmission替代opacity
-    ior: 1.5, //折射率
+    ior: 1.5, // 折射率
   });
 
   const obj = {

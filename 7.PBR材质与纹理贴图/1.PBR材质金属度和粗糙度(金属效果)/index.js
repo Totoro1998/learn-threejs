@@ -12,10 +12,10 @@ const axesHelper = new THREE.AxesHelper(100);
 scene.add(axesHelper);
 
 //光源设置
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 4.0);
 directionalLight.position.set(400, 200, 300);
 scene.add(directionalLight);
-const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+const ambient = new THREE.AmbientLight(0xffffff, 1.4);
 scene.add(ambient);
 
 //渲染器和相机
@@ -25,7 +25,9 @@ const camera = new THREE.PerspectiveCamera(30, width / height, 1, 3000);
 camera.position.set(40.0, 40.0, 40.0);
 camera.lookAt(0, 0, 0);
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+  antialias: true,
+});
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
