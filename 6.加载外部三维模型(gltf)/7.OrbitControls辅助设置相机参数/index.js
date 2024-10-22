@@ -22,12 +22,12 @@ scene.add(ambient);
 const width = window.innerWidth;
 const height = window.innerHeight;
 const camera = new THREE.PerspectiveCamera(30, width / height, 1, 3000);
-// camera.position.set(200, 200, 200);//第1步：根据场景渲染范围尺寸设置
+
 camera.position.set(-144, 95, 95);
-// camera.lookAt(0, 0, 0);
-const x = -1.2,
+const x = -12,
   y = -15,
   z = 10;
+
 camera.lookAt(x, y, z);
 
 const renderer = new THREE.WebGLRenderer();
@@ -40,8 +40,8 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 const controls = new OrbitControls(camera, renderer.domElement);
 // 相机控件.target属性在OrbitControls.js内部表示相机目标观察点，默认0,0,0
 // console.log('controls.target', controls.target);
-controls.target.set(x, y, z); //与lookAt参数保持一致
-controls.update(); //update()函数内会执行camera.lookAt(controls.target)
+controls.target.set(x, y, z); // 与lookAt参数保持一致
+controls.update(); // update()函数内会执行camera.lookAt(controls.target)
 
 // 渲染循环
 function render() {

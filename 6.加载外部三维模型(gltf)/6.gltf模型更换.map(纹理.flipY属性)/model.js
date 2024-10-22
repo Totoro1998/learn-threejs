@@ -15,14 +15,11 @@ console.log("texture.flipY", texture.flipY);
 texture.flipY = false; //是否翻转纹理贴图
 
 loader.load("./手机模型.glb", function (gltf) {
-  console.log("gltf.scene", gltf.scene);
+  model.add(gltf.scene);
   const mesh = gltf.scene.children[0]; //获取Mesh
   // 查看gltf里面Mesh颜色贴图的.flipY值
   console.log(".flipY", mesh.material.map.flipY);
-
   mesh.material.map = texture; //更换不同风格的颜色贴图
-
-  model.add(gltf.scene);
 });
 
 export default model;

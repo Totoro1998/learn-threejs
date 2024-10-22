@@ -13,10 +13,10 @@ loader.load(
   function (gltf) {
     model.add(gltf.scene);
     // 加载完成，隐藏进度条
-    // document.getElementById("container").style.visibility ='hidden';
     document.getElementById("container").style.display = "none";
   },
   function (xhr) {
+    console.log("xhr", xhr);
     // 控制台查看加载进度xhr
     // 通过加载进度xhr可以控制前端进度条进度
     const percent = xhr.loaded / xhr.total;
