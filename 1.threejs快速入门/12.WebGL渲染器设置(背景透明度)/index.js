@@ -30,10 +30,9 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(window.devicePixelRatio); //防止输出模糊
 renderer.setSize(width, height);
-// document.body.appendChild(renderer.domElement);
 document.getElementById("webgl").appendChild(renderer.domElement);
 
-renderer.setClearColor(0xffffff, 0); //设置背景颜色和透明度
+renderer.setClearColor(0xffffff, 0); //设置背景颜色和透明度 0是完全不透明，1是完全透明
 // renderer.setClearAlpha(0.5); // 改变背景透明度值
 
 // 渲染循环

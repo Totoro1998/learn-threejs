@@ -29,9 +29,9 @@ geometry.attributes.position = attribue;
 
 const material = new THREE.MeshBasicMaterial({
   color: 0x00ffff, //材质颜色
-  // side: THREE.FrontSide, //默认只有正面可见
-  // side: THREE.BackSide, //设置只有背面可见
-  side: THREE.DoubleSide, //两面可见
+  // side: THREE.FrontSide, // 默认只有正面可见
+  // side: THREE.BackSide, // 设置只有背面可见
+  side: THREE.DoubleSide, // 两面可见
 });
 // 网格模型本质：一个一个三角形(面)构成
 const mesh = new THREE.Mesh(geometry, material);

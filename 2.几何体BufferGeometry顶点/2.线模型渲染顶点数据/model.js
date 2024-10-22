@@ -36,7 +36,7 @@ geometry.attributes.position = position;
 const material = new THREE.LineBasicMaterial({
   color: 0xffff00, //线条颜色
 }); //材质对象
-// 创建线模型对象   构造函数：Line、LineLoop、LineSegments
+// 创建线模型对象：构造函数：Line、LineLoop、LineSegments
 const line = new THREE.Line(geometry, material); //线条模型对象
 
 export default line;

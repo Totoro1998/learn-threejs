@@ -19,8 +19,8 @@ const geometry = new THREE.SphereGeometry(50);
 // 模拟镜面反射，产生一个高光效果
 const material = new THREE.MeshPhongMaterial({
   color: "red", // 材质的颜色
-  shininess: 100, // 高亮的程度，越高的值越闪亮。默认值为 30
-  specular: 0x444444, // 材质的高光颜色
+  shininess: 20, // 高光部分的亮度，默认30
+  specular: 0x444444, // 高光部分的颜色
 });
 
 const mesh = new THREE.Mesh(geometry, material);

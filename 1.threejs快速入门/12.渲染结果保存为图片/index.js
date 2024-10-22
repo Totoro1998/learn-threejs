@@ -28,7 +28,7 @@ camera.lookAt(0, 0, 0);
 // WebGL渲染器设置
 const renderer = new THREE.WebGLRenderer({
   antialias: true, //开启优化锯齿
-  preserveDrawingBuffer: true, //想把canvas画布上内容下载到本地，需要设置为true
+  preserveDrawingBuffer: true, // 想把canvas画布上内容下载到本地，需要设置为true
 });
 renderer.setPixelRatio(window.devicePixelRatio); //防止输出模糊
 renderer.setSize(width, height);
