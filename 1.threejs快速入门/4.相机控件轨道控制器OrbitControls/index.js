@@ -30,11 +30,15 @@ scene.add(axesHelper);
  * 光源设置
  */
 //点光源
-const pointLight = new THREE.PointLight(0xffffff, 50000.0); // 如果使用默认衰减2.0，不同版本可能有差异，对于部分threejs新版本，有时候你可能看不到光源效果，这时候可以把光照强度加强试试看
+const pointLight = new THREE.PointLight(0xffffff, 1.0, 0, 0); // 如果使用默认衰减2.0，不同版本可能有差异，对于部分threejs新版本，有时候你可能看不到光源效果，这时候可以把光照强度加强试试看
 //点光源位置
 // pointLight.position.set(400, 0, 0);//点光源放在x轴上
-pointLight.position.set(400, 200, 100); //偏移光源位置，观察渲染效果变化
+pointLight.position.set(200, 200, 200); //偏移光源位置，观察渲染效果变化
 scene.add(pointLight); //点光源添加到场景中
+
+// 光源辅助观察
+const pointLightHelper = new THREE.PointLightHelper(pointLight, 5);
+scene.add(pointLightHelper);
 
 // width和height用来设置Three.js输出的Canvas画布尺寸(像素px)
 const width = 800; //宽度
@@ -43,8 +47,8 @@ const height = 500; //高度
  * 透视投影相机设置
  */
 // 30:视场角度, width / height:Canvas画布宽高比, 1:近裁截面, 3000：远裁截面
-const camera = new THREE.PerspectiveCamera(30, width / height, 1, 3000);
-camera.position.set(292, 223, 185); //相机在Three.js三维坐标系中的位置
+const camera = new THREE.PerspectiveCamera(30, width / height, 1, 8000);
+camera.position.set(400, 400, 400); //相机在Three.js三维坐标系中的位置
 console.log(camera.position); // Vector3实例
 camera.lookAt(0, 0, 0); // 相机观察目标指向Three.js坐标系原点
 
@@ -56,6 +60,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(width, height); //设置three.js渲染区域的尺寸(像素px)
 renderer.render(scene, camera); //执行渲染操作
+// renderer.setPixelRatio(window.devicePixelRatio);
 //three.js执行渲染命令会输出一个canvas画布，也就是一个HTML元素，你可以插入到web页面中
 document.body.appendChild(renderer.domElement);
 
@@ -63,5 +68,6 @@ document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 // 如果OrbitControls改变了相机参数，重新调用渲染器渲染三维场景
 controls.addEventListener("change", function () {
+  console.log("camera.position", camera.position);
   renderer.render(scene, camera); //执行渲染操作
 }); //监听鼠标、键盘事件

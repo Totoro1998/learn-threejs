@@ -23,18 +23,10 @@ scene.add(mesh); //网格模型添加到场景中
 const axesHelper = new THREE.AxesHelper(100);
 scene.add(axesHelper);
 
-/**
- * 光源设置
- */
-// //点光源
-// const pointLight = new THREE.PointLight(0xffffff, 50000.0);
-// //点光源位置
-// pointLight.position.set(400, 200, 300);
-// scene.add(pointLight); //点光源添加到场景中
-
 //环境光:没有特定方向，整体改变场景的光照明暗
-const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+const ambient = new THREE.AmbientLight(0xffffff, 1.0);
 scene.add(ambient);
+console.log("ambient", ambient);
 
 // 平行光
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -43,7 +35,6 @@ directionalLight.position.set(100, 60, 50);
 // 方向光指向对象网格模型mesh，可以不设置，默认的位置是0,0,0
 // directionalLight.target = mesh;
 scene.add(directionalLight);
-
 // DirectionalLightHelper：可视化平行光
 const dirLightHelper = new THREE.DirectionalLightHelper(directionalLight, 5, 0xff0000);
 scene.add(dirLightHelper);

@@ -8,33 +8,19 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 const scene = new THREE.Scene();
 
 // 创建网格模型
-
-//BoxGeometry：长方体
-// const geometry = new THREE.BoxGeometry(100, 100, 100);
 // SphereGeometry：球体
 const geometry = new THREE.SphereGeometry(50);
-
-// MeshBasicMaterial不受光照影响
-// const material = new THREE.MeshBasicMaterial({
-//     color: 0xff0000,
-// });
 
 // 漫反射，没有镜面反射效果，不会产生局部高光效果
 // const material = new THREE.MeshLambertMaterial({
 //     color: 0xff0000,
 // });
 
-// // 模拟镜面反射，产生一个高光效果
-// const material = new THREE.MeshPhongMaterial({
-//   color: 0xff0000,
-//   shininess: 20, //高光部分的亮度，默认30
-//   specular: 0x444444, //高光部分的颜色
-// });
-
+// 模拟镜面反射，产生一个高光效果
 const material = new THREE.MeshPhongMaterial({
   color: "red", // 材质的颜色
-  shininess: 100, // /高光部分的亮度，默认30
-  specular: 0x444444, // 高光部分的颜色
+  shininess: 100, // 高亮的程度，越高的值越闪亮。默认值为 30
+  specular: 0x444444, // 材质的高光颜色
 });
 
 const mesh = new THREE.Mesh(geometry, material);
