@@ -3,8 +3,8 @@ import * as THREE from "three";
 import { CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
 // 25, 80：圆锥半径和高度
 const geometry = new THREE.ConeGeometry(25, 80);
-geometry.translate(0, 40, 0); //y轴正方向，平移高度一半
-// geometry.translate(0,-40,0);//y轴负方向，平移高度一半，标签放好标注在顶部
+geometry.translate(0, 40, 0); // y轴正方向，平移高度一半
+// geometry.translate(0,-40,0);// y轴负方向，平移高度一半，标签放好标注在顶部
 const material = new THREE.MeshLambertMaterial({
   color: 0x00ffff,
 });

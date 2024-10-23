@@ -2,7 +2,7 @@ import * as THREE from "three";
 // 引入CSS2模型对象CSS2DObject
 import { CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
 
-const geometry = new THREE.BoxGeometry(40, 40, 40);
+const geometry = new THREE.BoxGeometry(50, 50, 50);
 const material = new THREE.MeshLambertMaterial({
   color: 0x00ffff,
 });

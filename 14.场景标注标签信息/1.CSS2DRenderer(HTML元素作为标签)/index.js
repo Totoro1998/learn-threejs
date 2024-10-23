@@ -16,15 +16,10 @@ const gridHelper = new THREE.GridHelper(300, 25, 0x004444, 0x004444);
 scene.add(gridHelper);
 
 //光源设置
-const directionalLight = new THREE.DirectionalLight(0xffffff, 4.0);
-directionalLight.position.set(100, 60, 50);
-scene.add(directionalLight);
-const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+const ambient = new THREE.AmbientLight(0xffffff, 1.0);
 scene.add(ambient);
 
 //相机
-// const width = window.innerWidth;
-// const height = window.innerHeight;
 const width = 600;
 const height = 300;
 const camera = new THREE.PerspectiveCamera(30, width / height, 1, 3000);

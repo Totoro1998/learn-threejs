@@ -13,7 +13,6 @@ const div = document.getElementById("tag");
 // HTML元素转化为threejs的CSS2模型对象
 const tag = new CSS2DObject(div);
 tag.position.set(50, 0, 50);
-// mesh.add(tag)
 const group = new THREE.Group();
 group.add(mesh);
 group.add(tag);
