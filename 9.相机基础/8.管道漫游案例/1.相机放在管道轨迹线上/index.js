@@ -46,6 +46,7 @@ function render() {
 }
 render();
 
+// 相机控件.target和.lookAt()参数同步，这样你可以旋转相机观察管道内部。
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.copy(pointsArr[i + 1]);
 controls.update();

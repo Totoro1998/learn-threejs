@@ -27,6 +27,6 @@ box3.getSize(size); // 计算包围盒尺寸
 console.log("模型包围盒尺寸", size);
 const center = new THREE.Vector3();
 box3.getCenter(center); // 计算包围盒中心坐标
-// console.log('模型中心坐标',center);
+console.log("模型中心坐标", center);
 
 export default mesh;

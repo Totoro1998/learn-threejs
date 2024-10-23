@@ -43,7 +43,7 @@ render();
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enablePan = false; //禁止右键拖拽
 controls.enableZoom = false; //禁止缩放
-controls.enableRotate = false; //禁止旋转
+// controls.enableRotate = false; //禁止旋转
 
 //透视投影相机：相机距离目标观察点距离越远，工厂模型显示越小，距离越近显示越大
 
