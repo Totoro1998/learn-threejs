@@ -12,12 +12,15 @@ const mesh = new THREE.Mesh(geometry, material);
 mesh.name = "Box";
 
 // 1.2 给名为Box的模型对象的设置关键帧数据KeyframeTrack
-const times = [0, 3, 6]; //时间轴上，设置三个时刻0、3、6秒
+const times = [0, 3, 6]; // 时间轴上，设置三个时刻0、3、6秒
 // times中三个不同时间点，物体分别对应values中的三个xyz坐标
 const values = [0, 0, 0, 100, 0, 0, 0, 0, 100];
 // 创建关键帧，把模型位置和时间对应起来
 // 0~3秒，物体从(0,0,0)逐渐移动到(100,0,0),3~6秒逐渐从(100,0,0)移动到(0,0,100)
+// const posKF = new THREE.KeyframeTrack("Box.position", times, values);
+
 const posKF = new THREE.KeyframeTrack("Box.position", times, values);
+
 // 时间轴上选择两个时刻2秒、5秒，分别对应物体两个颜色值(1, 0, 0)、(0, 0, 1)
 // 从2秒到5秒，物体从红色逐渐变化为蓝色
 const colorKF = new THREE.KeyframeTrack("Box.material.color", [2, 5], [1, 0, 0, 0, 0, 1]);
@@ -27,7 +30,7 @@ const colorKF = new THREE.KeyframeTrack("Box.material.color", [2, 5], [1, 0, 0, 
 // 1.3 AnimationClip表示一个关键帧动画，可以基于关键帧数据产生动画效果
 // 创建一个clip关键帧动画对象，命名"test"，动画持续时间6s
 // AnimationClip包含的所有关键帧数据都放到参数3数组中即可
-const clip = new THREE.AnimationClip("test", 6, [posKF, colorKF]);
+const clip = new THREE.AnimationClip("TEST ANIMATION", times.at(-1), [posKF, colorKF]);
 
 // 2. 第2步播放关键帧动画AnimationClip
 
@@ -35,9 +38,9 @@ const clip = new THREE.AnimationClip("test", 6, [posKF, colorKF]);
 //包含关键帧动画的模型对象作为AnimationMixer的参数创建一个播放器mixer
 const mixer = new THREE.AnimationMixer(mesh);
 //AnimationMixer的`.clipAction()`返回一个AnimationAction对象
-const clipAction = mixer.clipAction(clip);
+const animationAction = mixer.clipAction(clip);
 //.play()控制动画播放，默认循环播放
-clipAction.play();
+animationAction.play();
 
 // 2.2 如果想播放动画开始变化,需要周期性执行`mixer.update()`更新AnimationMixer时间数据
 // 你可以通过requestAnimationFrame提供一个周期性执行的函数
@@ -52,5 +55,4 @@ function loop() {
 loop();
 
 // 如果你不想用requestAnimationFrame重新创建一个循环执行函数，也可以在index.js文件渲染循环中引入`mixer.update()`的代码
-
 export default mesh;

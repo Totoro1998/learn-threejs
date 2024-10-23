@@ -17,14 +17,13 @@ const clip = new THREE.AnimationClip("test", 6, [posKF, colorKF]);
 // 播放器AnimationMixer播放动画AnimationClip
 const mixer = new THREE.AnimationMixer(mesh);
 //AnimationMixer的`.clipAction()`返回一个AnimationAction对象
-const clipAction = mixer.clipAction(clip);
+const animationAction = mixer.clipAction(clip);
 //.play()控制动画播放，默认循环播放
-clipAction.play();
+animationAction.play();
 
 //在暂停情况下，设置.time属性,把动画定位在任意时刻
-clipAction.paused = true;
-// clipAction.time = 1;//物体状态为动画1秒对应状态
-clipAction.time = 3; //物体状态为动画3秒对应状态
+animationAction.paused = true;
+animationAction.time = 3; // 物体状态为动画3秒对应状态
 
 const clock = new THREE.Clock();
 function loop() {

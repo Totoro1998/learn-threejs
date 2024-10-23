@@ -24,10 +24,10 @@ const clip = new THREE.AnimationClip("t", 10, [KF1, KF2]);
 
 // 播放变形动画
 const mixer = new THREE.AnimationMixer(mesh);
-const clipAction = mixer.clipAction(clip);
-clipAction.play();
-clipAction.loop = THREE.LoopOnce; //不循环播放
-clipAction.clampWhenFinished = true; // 物体状态停留在动画结束的时候
+const animationAction = mixer.clipAction(clip);
+animationAction.play();
+animationAction.loop = THREE.LoopOnce; //不循环播放
+animationAction.clampWhenFinished = true; // 物体状态停留在动画结束的时候
 
 const clock = new THREE.Clock();
 

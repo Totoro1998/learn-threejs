@@ -17,21 +17,21 @@ const clip = new THREE.AnimationClip("test", 6, [posKF, colorKF]);
 // 播放器AnimationMixer播放动画AnimationClip
 const mixer = new THREE.AnimationMixer(mesh);
 //AnimationMixer的`.clipAction()`返回一个AnimationAction对象
-const clipAction = mixer.clipAction(clip);
+const animationAction = mixer.clipAction(clip);
 //.play()控制动画播放，默认循环播放
-clipAction.play();
+animationAction.play();
 
 const bu = document.getElementById("bu");
 
 bu.addEventListener("click", function () {
   // AnimationAction.paused默认值false，设置为true，可以临时暂停动画
-  if (clipAction.paused) {
+  if (animationAction.paused) {
     //暂停状态
-    clipAction.paused = false; //切换为播放状态
+    animationAction.paused = false; //切换为播放状态
     bu.innerHTML = "暂停"; // 如果改变为播放状态，按钮文字设置为“暂停”
   } else {
     //播放状态
-    clipAction.paused = true; //切换为暂停状态
+    animationAction.paused = true; //切换为暂停状态
     bu.innerHTML = "继续"; // 如果改变为暂停状态，按钮文字设置为“继续”
   }
 });

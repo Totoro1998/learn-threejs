@@ -25,34 +25,34 @@ loader.load("./机械装配动画.glb", function (gltf) {
   const mixer = new THREE.AnimationMixer(gltf.scene);
   //  获取gltf.animations[0]的第一个clip动画对象
   const clip = gltf.animations[0];
-  const clipAction = mixer.clipAction(clip); //创建动画clipAction对象
-  clipAction.play(); //播放动画
-  clipAction.paused = true; //暂停状态
+  const animationAction = mixer.clipAction(clip); //创建动画clipAction对象
+  animationAction.play(); //播放动画
+  animationAction.paused = true; //暂停状态
 
-  clipAction.loop = THREE.LoopOnce; //不循环播放
+  animationAction.loop = THREE.LoopOnce; //不循环播放
 
   const bu = document.getElementById("bu");
   bu.addEventListener("click", function () {
     // AnimationAction.paused默认值false，设置为true，可以临时暂停动画
-    if (clipAction.paused) {
+    if (animationAction.paused) {
       //暂停状态
-      clipAction.paused = false; //切换为播放状态
+      animationAction.paused = false; // 切换为播放状态
       bu.innerHTML = "暂停"; // 如果改变为播放状态，按钮文字设置为“暂停”
     } else {
       //播放状态
-      clipAction.paused = true; //切换为暂停状态
+      animationAction.paused = true; // 切换为暂停状态
       bu.innerHTML = "播放"; // 如果改变为暂停状态，按钮文字设置为“播放”
     }
   });
 
   mixer.addEventListener("finished", function () {
-    clipAction.reset(); //播放动画
-    clipAction.paused = true; //切换为暂停状态
-    bu.innerHTML = "播放"; //按钮样式恢复到“播放”状态
+    animationAction.reset(); // 播放动画
+    animationAction.paused = true; // 切换为暂停状态
+    bu.innerHTML = "播放"; // 按钮样式恢复到“播放”状态
   });
   const gui = new GUI(); //创建GUI对象
   // 0~2倍速之间调节
-  gui.add(clipAction, "timeScale", 0, 2).step(0.1).name("倍速");
+  gui.add(animationAction, "timeScale", 0, 2).step(0.1).name("倍速");
 
   const clock = new THREE.Clock();
 

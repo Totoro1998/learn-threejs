@@ -17,17 +17,14 @@ const clip = new THREE.AnimationClip("test", 6, [posKF, colorKF]);
 // 播放器AnimationMixer播放动画AnimationClip
 const mixer = new THREE.AnimationMixer(mesh);
 //AnimationMixer的`.clipAction()`返回一个AnimationAction对象
-const clipAction = mixer.clipAction(clip);
-// clipAction.loop = THREE.LoopOnce;
-// clipAction.clampWhenFinished=true;
-//.play()控制动画播放，默认循环播放
-clipAction.play();
+const animationAction = mixer.clipAction(clip);
+animationAction.play();
 
 document.getElementById("stop").addEventListener("click", function () {
-  clipAction.stop(); //动画停止结束，回到开始状态
+  animationAction.stop(); //动画停止结束，回到开始状态
 });
 document.getElementById("play").addEventListener("click", function () {
-  clipAction.play(); //播放动画
+  animationAction.play(); //播放动画
 });
 
 const clock = new THREE.Clock();

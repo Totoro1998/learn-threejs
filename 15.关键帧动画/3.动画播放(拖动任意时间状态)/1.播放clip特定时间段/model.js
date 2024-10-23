@@ -17,17 +17,17 @@ const clip = new THREE.AnimationClip("test", 6, [posKF, colorKF]);
 // 播放器AnimationMixer播放动画AnimationClip
 const mixer = new THREE.AnimationMixer(mesh);
 //AnimationMixer的`.clipAction()`返回一个AnimationAction对象
-const clipAction = mixer.clipAction(clip);
+const animationAction = mixer.clipAction(clip);
 //.play()控制动画播放，默认循环播放
-clipAction.play();
+animationAction.play();
 
 // AnimationAction对象用来控制播放规则
-clipAction.loop = THREE.LoopOnce; //不循环播放
+animationAction.loop = THREE.LoopOnce; //不循环播放
 // 物体状态停留在动画结束的时候
-clipAction.clampWhenFinished = true;
+animationAction.clampWhenFinished = true;
 
 // 从时间轴上选择时间段播放动画，开始时刻`clipAction.time`，结束时刻`clip.duration`。
-clipAction.time = 1; // AnimationAction设置开始播放时间：从1秒时刻对应动画开始播放
+animationAction.time = 1; // AnimationAction设置开始播放时间：从1秒时刻对应动画开始播放
 clip.duration = 5; // AnimationClip设置播放结束时间：到5秒时刻对应的动画状态停止
 
 const clock = new THREE.Clock();

@@ -17,16 +17,16 @@ const clip = new THREE.AnimationClip("test", 6, [posKF, colorKF]);
 // 播放器AnimationMixer播放动画AnimationClip
 const mixer = new THREE.AnimationMixer(mesh);
 //AnimationMixer的`.clipAction()`返回一个AnimationAction对象
-const clipAction = mixer.clipAction(clip);
+const animationAction = mixer.clipAction(clip);
 //.play()控制动画播放，默认循环播放
-clipAction.play();
+animationAction.play();
 
 //暂停状态点击按钮查看下一步动画状态
-clipAction.paused = true;
+animationAction.paused = true;
 
 const bu = document.getElementById("bu");
 bu.addEventListener("click", function () {
-  clipAction.time += 0.1;
+  animationAction.time += 0.1;
 });
 
 const clock = new THREE.Clock();

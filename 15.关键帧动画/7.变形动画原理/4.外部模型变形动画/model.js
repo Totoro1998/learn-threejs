@@ -10,8 +10,8 @@ loader.load("./鸟.glb", function (gltf) {
   //包含关键帧动画的模型作为参数创建一个播放器
   const mixer = new THREE.AnimationMixer(gltf.scene);
   //  获取gltf.animations[0]的第一个clip动画对象
-  const clipAction = mixer.clipAction(gltf.animations[0]);
-  clipAction.play();
+  const animationAction = mixer.clipAction(gltf.animations[0]);
+  animationAction.play();
 
   const clock = new THREE.Clock();
   function loop() {

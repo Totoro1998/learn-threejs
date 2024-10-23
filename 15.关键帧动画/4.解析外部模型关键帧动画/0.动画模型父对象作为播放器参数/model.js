@@ -19,14 +19,14 @@ const clip = new THREE.AnimationClip("test", 6, [posKF, colorKF]);
 // 播放器AnimationMixer播放动画AnimationClip
 const mixer = new THREE.AnimationMixer(group);
 //AnimationMixer的`.clipAction()`返回一个AnimationAction对象
-const clipAction = mixer.clipAction(clip);
+const animationAction = mixer.clipAction(clip);
 //.play()控制动画播放，默认循环播放
-clipAction.play();
+animationAction.play();
 
 // AnimationAction对象用来控制播放规则
-clipAction.loop = THREE.LoopOnce; //不循环播放
+animationAction.loop = THREE.LoopOnce; //不循环播放
 // 物体状态停留在动画结束的时候
-clipAction.clampWhenFinished = true;
+animationAction.clampWhenFinished = true;
 
 const clock = new THREE.Clock();
 

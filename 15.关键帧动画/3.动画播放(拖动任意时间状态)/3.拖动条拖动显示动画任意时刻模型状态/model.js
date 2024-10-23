@@ -18,14 +18,14 @@ const clip = new THREE.AnimationClip("test", 6, [posKF, colorKF]);
 // 播放器AnimationMixer播放动画AnimationClip
 const mixer = new THREE.AnimationMixer(mesh);
 //AnimationMixer的`.clipAction()`返回一个AnimationAction对象
-const clipAction = mixer.clipAction(clip);
+const animationAction = mixer.clipAction(clip);
 //.play()控制动画播放，默认循环播放
-clipAction.play();
+animationAction.play();
 
 const gui = new GUI(); //创建GUI对象
 //暂停状态拖动拖动条
-clipAction.paused = true;
-gui.add(clipAction, "time", 0, 6).step(0.1);
+animationAction.paused = true;
+gui.add(animationAction, "time", 0, 6).step(0.1);
 
 const clock = new THREE.Clock();
 function loop() {

@@ -14,10 +14,10 @@ loader.load("../人.glb", function (gltf) {
   const KF1 = new THREE.KeyframeTrack("per.morphTargetInfluences[0]", [0, 5], [0, 1]);
   const clip = new THREE.AnimationClip("t", 5, [KF1]);
 
-  //包含关键帧动画的模型作为参数创建一个播放器
+  // 包含关键帧动画的模型作为参数创建一个播放器
   const mixer = new THREE.AnimationMixer(gltf.scene);
-  const clipAction = mixer.clipAction(clip);
-  clipAction.play();
+  const animationAction = mixer.clipAction(clip);
+  animationAction.play();
 
   const clock = new THREE.Clock();
   function loop() {
