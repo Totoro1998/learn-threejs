@@ -32,8 +32,6 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio); //防止输出模糊
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
-//解决加载gltf格式模型颜色偏差问题
-renderer.outputEncoding = THREE.sRGBEncoding;
 
 // 渲染循环
 function render() {

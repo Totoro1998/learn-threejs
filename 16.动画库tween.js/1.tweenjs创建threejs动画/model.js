@@ -7,12 +7,10 @@ const material = new THREE.MeshLambertMaterial({
 });
 const mesh = new THREE.Mesh(geometry, material);
 
-//创建一段mesh平移的动画
+// 创建一段mesh平移的动画
 const tween = new TWEEN.Tween(mesh.position);
-//经过2000毫秒，pos对象的x和y属性分别从零变化为100、50
-tween.to({ x: 100, y: 50 }, 2000);
-//tween动画开始执行
-tween.start();
+tween.to({ x: 100, y: 100, z: 100 }, 2000); //经过2000毫秒，mesh.position对象的x、y、z属性分别从0变化为100
+tween.start(); // tween动画开始执行
 
 // 更简洁书写形式
 // const tween = new TWEEN.Tween(mesh.position)

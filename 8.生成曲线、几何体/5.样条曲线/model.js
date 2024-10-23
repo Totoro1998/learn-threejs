@@ -12,11 +12,7 @@ const arr = [
 const curve = new THREE.CatmullRomCurve3(arr);
 
 // // 二维向量Vector2创建一组顶点坐标
-// const arr = [
-//     new THREE.Vector2(-100, 0),
-//     new THREE.Vector2(0, 30),
-//     new THREE.Vector2(100, 0),
-// ];
+// const arr = [new THREE.Vector2(-100, 0), new THREE.Vector2(0, 30), new THREE.Vector2(100, 0)];
 // // 二维样条曲线
 // const curve = new THREE.SplineCurve(arr);
 

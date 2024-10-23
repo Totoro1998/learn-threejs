@@ -33,7 +33,6 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio); //防止输出模糊
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
-renderer.outputEncoding = THREE.sRGBEncoding;
 
 // 创建一个CSS2渲染器CSS2DRenderer
 const css2Renderer = new CSS2DRenderer();

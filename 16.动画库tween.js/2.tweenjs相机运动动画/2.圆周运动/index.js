@@ -12,10 +12,7 @@ const axesHelper = new THREE.AxesHelper(100);
 scene.add(axesHelper);
 
 //光源设置
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(100, 60, 50);
-scene.add(directionalLight);
-const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+const ambient = new THREE.AmbientLight(0xffffff, 1.0);
 scene.add(ambient);
 
 //相机
@@ -42,8 +39,6 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio); //防止输出模糊
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
-//解决加载gltf格式模型颜色偏差问题
-renderer.outputEncoding = THREE.sRGBEncoding;
 
 // 渲染循环
 function render() {

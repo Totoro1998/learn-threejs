@@ -48,9 +48,9 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio); //防止输出模糊
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
-//解决加载gltf格式模型颜色偏差问题
+
 // 设置后处理，renderer.outputEncoding 无效
-// renderer.outputEncoding = THREE.sRGBEncoding;
+//
 
 // 创建后处理对象EffectComposer，WebGL渲染器作为参数
 const composer = new EffectComposer(renderer);
