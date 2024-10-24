@@ -22,7 +22,7 @@ scene.add(ambient);
 const width = window.innerWidth;
 const height = window.innerHeight;
 const camera = new THREE.PerspectiveCamera(30, width / height, 1, 3000);
-camera.position.set(202, 123, 125);
+camera.position.set(0, 400, 0);
 camera.lookAt(0, 0, 0);
 
 // WebGL渲染器设置
@@ -33,14 +33,16 @@ renderer.setPixelRatio(window.devicePixelRatio); //防止输出模糊
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
+const controls = new OrbitControls(camera, renderer.domElement);
+
 // 渲染循环
 function render() {
+  console.log((controls.getPolarAngle() / Math.PI) * 180);
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 }
 render();
 
-const controls = new OrbitControls(camera, renderer.domElement);
 controls.enablePan = false; //禁止右键拖拽
 controls.enableZoom = false; //禁止缩放
 // controls.enableRotate = false; //禁止旋转

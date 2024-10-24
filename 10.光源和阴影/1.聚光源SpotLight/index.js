@@ -26,14 +26,14 @@ scene.add(spotLight); //光源添加到场景中
 spotLight.angle = Math.PI / 3; //光锥角度的二分之一
 // 设置聚光光源位置
 spotLight.position.set(0, 50, 0);
-console.log("聚广源指向目标", spotLight.target);
+console.log("聚光源指向目标", spotLight.target);
 
 // // spotLight.target是一个模型对象Object3D，默认在坐标原点
 // spotLight.target.position.set(50, 0, 0);
 // // spotLight.target添加到场景中.target.position才会起作用;
 // scene.add(spotLight.target);
 
-// 聚广源辅助对象，可视化聚广源
+// 聚光源辅助对象，可视化聚光源
 const spotLightHelper = new THREE.SpotLightHelper(spotLight, 0xffffff);
 scene.add(spotLightHelper);
 

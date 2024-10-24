@@ -47,10 +47,10 @@ window.onresize = function () {
 
 const raycaster = new THREE.Raycaster(new THREE.Vector3(-100, 0, 0), new THREE.Vector3(1, 0, 0));
 // console.log('射线属性',raycaster.ray);
-// 设置射线起点
-raycaster.ray.origin = new THREE.Vector3(-100, 0, 0);
-// 设置射线方向射线方向沿着x轴
-raycaster.ray.direction = new THREE.Vector3(1, 0, 0);
+// // 设置射线起点
+// raycaster.ray.origin = new THREE.Vector3(-100, 0, 0);
+// // 设置射线方向射线方向沿着x轴
+// raycaster.ray.direction = new THREE.Vector3(1, 0, 0);
 //.intersectObjects([mesh1, mesh2, mesh3])对参数中的网格模型对象进行射线交叉计算
 // 未选中对象返回空数组[],选中一个对象，数组1个元素，选中多个对象，数组多个元素
 const intersects = raycaster.intersectObjects([mesh1, mesh2, mesh3]);

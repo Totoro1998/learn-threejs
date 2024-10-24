@@ -29,15 +29,17 @@ loader.load("./地形.glb", function (gltf) {
 
   // 2. 计算每个顶点的颜色值
   const colorsArr = [];
-  const color1 = new THREE.Color(0x0000ff); //山谷颜色
-  const color2 = new THREE.Color(0x00ff00); //山腰颜色
-  const color3 = new THREE.Color(0xff0000); //山顶颜色
+  const color1 = new THREE.Color(0x0000ff); // 山底颜色，蓝色
+  const color2 = new THREE.Color(0x00ff00); // 山腰颜色 ,绿色
+  const color3 = new THREE.Color(0xff0000); // 山顶颜色，红色
   for (let i = 0; i < count; i++) {
     //当前高度和整体高度比值
     const percent = (pos.getY(i) - miny) / height;
     // 颜色插值计算
     let c = null;
+
     if (percent <= 0.5) {
+      // 说明是山底到山腰
       //0.5作为颜色插值分界点
       // color1到color2之间插值
       c = color1.clone().lerp(color2, percent * 2);
