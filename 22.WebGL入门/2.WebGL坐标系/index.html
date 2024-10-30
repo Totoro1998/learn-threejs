@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <!--canvas标签创建一个宽高均为500像素-->
+    <!-- canvas：用来展示WebGL渲染的结果 -->
+    <canvas id="webgl" width="500" height="500" style="background: #000"></canvas>
+  </body>
+  <script>
+    //通过getElementById()方法获取canvas画布
+    const canvas = document.getElementById("webgl");
+    //通过方法getContext()获取WebGL上下文
+    const gl = canvas.getContext("webgl");
+
+    //顶点着色器源码
+    const vertexShaderSource = `
+    void main(){
+        gl_PointSize = 20.0;
+        // 改变顶点的坐标，测试渲染效果
+        gl_Position = vec4(0.0,0.0,0.0,1.0);// 位于画布中间
+        // gl_Position = vec4(1.0,0.0,0.0,1.0);// 位于画布最右侧
+        //  gl_Position = vec4(0.0,1.0,0.0,1.0);// 位于画布最顶部
+    }
+    `;
+    //片元着色器源码
+    const fragShaderSource = `
+    void main(){
+        gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+    }    
+    `;
+    //初始化着色器
+    const program = initShader(gl, vertexShaderSource, fragShaderSource);
+    //执行绘制命令
+    gl.drawArrays(gl.POINTS, 0, 1);
+
+    //声明初始化着色器函数
+    function initShader(gl, vertexShaderSource, fragmentShaderSource) {
+      const vertexShader = gl.createShader(gl.VERTEX_SHADER);
+      const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+      gl.shaderSource(vertexShader, vertexShaderSource);
+      gl.shaderSource(fragmentShader, fragmentShaderSource);
+      gl.compileShader(vertexShader);
+      gl.compileShader(fragmentShader);
+      const program = gl.createProgram();
+      gl.attachShader(program, vertexShader);
+      gl.attachShader(program, fragmentShader);
+      gl.linkProgram(program);
+      gl.useProgram(program);
+      return program;
+    }
+  </script>
+</html>
