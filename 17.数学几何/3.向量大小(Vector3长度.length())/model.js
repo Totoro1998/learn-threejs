@@ -26,7 +26,7 @@ const BO = y2 - y1;
 // AB.subVectors(B,A);
 const AB = B.clone().sub(A);
 
-// console.log('AB',AB);
+console.log("AB", AB);
 const L = AB.length(); //向量长度计算，A点到B点的距离
 
 // 计算结果：50√5(111.803)
